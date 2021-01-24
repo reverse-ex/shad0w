@@ -7,13 +7,15 @@ __description__ = "Show the current working directory on a target"
 __author__ = "@_batsec_"
 __type__ = "file system"
 
-EXEC_ID    = 0x4000
+EXEC_ID = 0x4000
 OPCODE_PWD = 0x3000
+
 
 def pwd_callback(shad0w, data):
     shad0w.debug.log(data, log=True, pre=False)
 
     return ""
+
 
 def main(shad0w, args):
 
@@ -23,7 +25,7 @@ def main(shad0w, args):
         return
 
     # make the json
-    data = {"op" : OPCODE_PWD, "args": "null"}
+    data = {"op": OPCODE_PWD, "args": "null"}
     data = json.dumps(data)
 
     # set a task for the current beacon to do
